@@ -10,8 +10,9 @@
   --bg:#F7F5EF;--card:#FFFFFF;--head:#EEEBE3;--ink:#1F1F1C;--ink2:#5B5A55;--ink3:#8B8A83;--line:#E4E1D8;--pill:#2B2A26;
   --paris:#D85A30;--ams:#1D9E75;--cph:#2F7BC7;
   --t-makan:#FBE6EC;--t-makan-i:#7A2540;--t-kopi:#F3E7DA;--t-kopi-i:#5C3A12;--t-roti:#FBEFD5;--t-roti-i:#7A4600;--t-jajan:#FBF4D0;--t-jajan-i:#6E5400;
-  --t-fashion:#E6E3F5;--t-fashion-i:#3B2F7C;--t-home:#E2F1E7;--t-home-i:#1F5A35;--t-souvenir:#F8E3F1;--t-souvenir-i:#7A1D5C;--t-museum:#E3ECF7;--t-museum-i:#1F3F6E;
-  --t-lihat:#DFF0F5;--t-lihat-i:#0B4F66;--t-taman:#E8F1D6;--t-taman-i:#33590A;--t-atraksi:#FBE7DA;--t-atraksi-i:#7A3608;--t-trip:#F3EAD9;--t-trip-i:#5A3A12;--t-tanya:#EDEDEA;--t-tanya-i:#555;--t-v:#FBEFD5;--t-v-i:#7A4600;}
+  --t-fashion:#E6E3F5;--t-fashion-i:#3B2F7C;--t-vintage:#EFE2F7;--t-vintage-i:#5A2580;--t-sepatu:#E1E8F5;--t-sepatu-i:#28407A;--t-belanja:#F6E6D8;--t-belanja-i:#6E3A10;--t-beauty:#FCE4E4;--t-beauty-i:#8A2A2A;
+  --t-home:#E2F1E7;--t-home-i:#1F5A35;--t-souvenir:#F8E3F1;--t-souvenir-i:#7A1D5C;--t-museum:#E3ECF7;--t-museum-i:#1F3F6E;
+  --t-lihat:#DFF0F5;--t-lihat-i:#0B4F66;--t-taman:#E8F1D6;--t-taman-i:#33590A;--t-atraksi:#FBE7DA;--t-atraksi-i:#7A3608;--t-trip:#F3EAD9;--t-trip-i:#5A3A12;--t-hotel:#E9ECEF;--t-hotel-i:#3A4552;--t-tanya:#EDEDEA;--t-tanya-i:#555;--t-v:#FBEFD5;--t-v-i:#7A4600;}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,"Helvetica Neue",Arial,sans-serif;font-size:15px;line-height:1.55}
@@ -88,35 +89,83 @@ td.mkc{white-space:nowrap;width:1%}
 </div>
 
 <script>
-const CAT={makan:"Makan",kopi:"Kopi & kafe",roti:"Roti & pastry",jajan:"Jajanan",fashion:"Belanja fashion",home:"Home & decor",souvenir:"Souvenir",museum:"Museum",lihat:"Sightseeing",taman:"Taman",atraksi:"Atraksi",trip:"Day trip",tanya:"Belum jelas"};
+const CAT={makan:"Makan",kopi:"Kopi & kafe",roti:"Roti & pastry",jajan:"Jajanan",fashion:"Belanja fashion",vintage:"Vintage",sepatu:"Sepatu & tas",belanja:"Dept store & gourmet",beauty:"Beauty & apotek",home:"Home & decor",souvenir:"Souvenir",museum:"Museum",lihat:"Sightseeing",taman:"Taman",atraksi:"Atraksi",trip:"Day trip",hotel:"Hotel",tanya:"Belum jelas"};
 const CITY={paris:{n:"Paris"},ams:{n:"Amsterdam"},cph:{n:"Copenhagen"}};
 const P=[
 ["paris","Canal Saint-Martin (10e)","Metro République / Jacques Bonsergent","Centre Commercial","fashion","Concept store fashion berkelanjutan, 2 Rue de Marseille",48.8710,2.3620],
 ["paris","Canal Saint-Martin (10e)","Metro République / Jacques Bonsergent","Centre Commercial Outdoor","fashion","Toko running & outdoor, persis di sebelahnya (10 Rue de Marseille)",48.8712,2.3622],
 ["paris","Canal Saint-Martin (10e)","Metro République / Jacques Bonsergent","Du Pain et des Idées","roti","Bakery legendaris, escargot pistache. Tutup Sabtu–Minggu",48.8709,2.3626],
+["paris","Canal Saint-Martin (10e)","Metro République / Jacques Bonsergent","Less is More","vintage","Vintage denim, 22 Rue des Vinaigriers. Tutup Senin–Selasa",48.8732,2.3632],
+["paris","Canal Saint-Martin (10e)","Metro Jacques Bonsergent","Little Hotel","hotel","Tersimpan di Maps, 3 Rue Pierre Chausson",48.8705,2.3602],
 ["paris","Haut-Marais (3e–4e)","Metro Filles du Calvaire / Saint-Sébastien-Froissart","The Broken Arm","fashion","Concept store + kafe, 12 Rue Perrée",48.8646,2.3618],
 ["paris","Haut-Marais (3e–4e)","Metro Filles du Calvaire / Saint-Sébastien-Froissart","Distance Running Store","fashion","Toko running, 14 Rue des Filles du Calvaire",48.8620,2.3660],
 ["paris","Haut-Marais (3e–4e)","Metro Filles du Calvaire / Saint-Sébastien-Froissart","Satisfy Store Paris","fashion","Brand running Paris, toko di Marais",48.8585,2.3650,1],
 ["paris","Haut-Marais (3e–4e)","Metro Filles du Calvaire / Saint-Sébastien-Froissart","Chez Janou","makan","Bistro Provençal, mousse coklat sepuasnya. Reservasi",48.8563,2.3660],
 ["paris","Haut-Marais (3e–4e)","Metro Saint-Paul","Dover Street Market Paris","fashion","35-37 Rue des Francs Bourgeois, ada Rose Bakery",48.8579,2.3600],
+["paris","Haut-Marais (3e–4e)","Metro Arts et Métiers / Temple","Partisan Café Artisanal","kopi","36 Rue de Turbigo, kopi enak, tanpa laptop",48.8647,2.3531],
+["paris","Haut-Marais (3e–4e)","Metro Arts et Métiers / Temple","DolceVitaHub Le Marais","vintage","Vintage designer & archive, 62 Rue de Turbigo. Buka 12.30",48.8660,2.3587],
+["paris","Haut-Marais (3e–4e)","Metro Temple","Demain Rétro","vintage","Vintage clothing, 154 Rue du Temple",48.8644,2.3595],
+["paris","Haut-Marais (3e–4e)","Metro Filles du Calvaire","Fourche Noire","vintage","Vintage & archive, kuat di jaket kulit dan Levi's, 62 Rue de Saintonge",48.8636,2.3649],
+["paris","Haut-Marais (3e–4e)","Metro Saint-Sébastien-Froissart","The Frankie Shop","fashion","14 Rue Saint-Claude, sering antre. Cabang lain di Bd Haussmann",48.8602,2.3658],
+["paris","Haut-Marais (3e–4e)","Metro Saint-Sébastien-Froissart","RSVP Paris","sepatu","Tas kulit, 8 Rue Saint-Claude (sebelah Frankie Shop)",48.8603,2.3666],
+["paris","Haut-Marais (3e–4e)","Metro Saint-Sébastien-Froissart","Merci","fashion","Concept store, 111 Bd Beaumarchais",48.8608,2.3667],
+["paris","Haut-Marais (3e–4e)","Metro Chemin Vert / Saint-Paul","Carette Place des Vosges","kopi","Hot chocolate & pastry, antrean lebih pendek dari cabang Trocadéro",48.8563,2.3656],
+["paris","Haut-Marais (3e–4e)","Metro Saint-Paul","Jonak","sepatu","Sepatu, 38 Rue Saint-Antoine. Cabang lain: Av. de l'Opéra, Rue Berger",48.8541,2.3648],
 ["paris","Oberkampf (11e)","Metro Parmentier / Oberkampf","Boulangerie Utopie","roti","Roti hitam arang, 20 Rue Jean-Pierre Timbaud",48.8660,2.3690],
 ["paris","Oberkampf (11e)","Metro Parmentier / Oberkampf","The French Bastards","roti","Bakery, cabang Oberkampf (ada cabang lain juga)",48.8657,2.3720],
+["paris","Montmartre & Pigalle (9e–18e)","Metro Abbesses / Pigalle","Montmartre (Sacré-Cœur)","lihat","Bukit Montmartre & basilika, pemandangan kota",48.8867,2.3431],
 ["paris","Montmartre & Pigalle (9e–18e)","Metro Abbesses / Pigalle","Musée de Montmartre","museum","Taman Renoir, pemandangan kebun anggur",48.8878,2.3407],
 ["paris","Montmartre & Pigalle (9e–18e)","Metro Abbesses / Pigalle","Fotoautomat Montmartre","atraksi","Photo booth analog, 53 Rue des Trois Frères",48.8855,2.3405],
+["paris","Montmartre & Pigalle (9e–18e)","Metro Anvers","Photobooth Montmartre (Triportrait)","atraksi","Photo booth, 18 Rue Chappe, dekat funicular",48.8849,2.3419],
 ["paris","Montmartre & Pigalle (9e–18e)","Metro Abbesses / Pigalle","Bouillon Pigalle","makan","Bistro murah klasik, antre tanpa reservasi",48.8822,2.3374],
 ["paris","Montmartre & Pigalle (9e–18e)","Metro Anvers / Pigalle","Mamiche","roti","Babka & cookie, 45 Rue Condorcet",48.8807,2.3403],
+["paris","Montmartre & Pigalle (9e–18e)","Metro Abbesses","Maje Paris 18 Abbesses","fashion","Outlet, 92 Rue des Martyrs. Tutup Senin; hanya tukar, tidak refund",48.8840,2.3399],
+["paris","Montmartre & Pigalle (9e–18e)","Metro Anvers","A.P.C. Surplus","fashion","Outlet, 22 Rue André del Sarte. Staf bantu tax refund",48.8859,2.3455],
+["paris","Montmartre & Pigalle (9e–18e)","Metro Anvers","Anthology","sepatu","Outlet sepatu, 16 Rue Ronsard. Cabang lain 41 Rue des Martyrs",48.8855,2.3449],
+["paris","Batignolles (17e)","Metro Rome / Brochant, dekat dari Clichy","Pleincœur","roti","Pastry, 64 Rue des Batignolles. Buka tiap hari 08.00",48.8865,2.3187],
+["paris","Batignolles (17e)","Metro Brochant / Pont Cardinet","Atelier Pleincoeur","roti","Pastry, 12 Rue Mstislav Rostropovitch",48.8893,2.3146],
+["paris","Batignolles (17e)","Metro Rome / Place de Clichy","Hôtel Rendez-Vous Batignolles","hotel","Tersimpan di Maps, 13-17 Rue Lécluse",48.8840,2.3254],
+["paris","Opéra & Grands Magasins (2e–9e)","Metro Opéra / Havre-Caumartin","Repetto","sepatu","Flagship 22 Rue de la Paix (ada beberapa cabang)",48.8693,2.3313],
+["paris","Opéra & Grands Magasins (2e–9e)","Metro Havre-Caumartin","Typology","beauty","Brand beauty lokal, di Printemps Haussmann (gedung Beauté)",48.8743,2.3274],
+["paris","Opéra & Grands Magasins (2e–9e)","Metro Madeleine / Chaussée d'Antin","Carel","sepatu","Cabang Madeleine, Marais, dan Galeries Lafayette",48.8712,2.3255,1],
+["paris","Les Halles & Sentier (1er–2e)","Metro Les Halles / Étienne Marcel","ba&sh Jour Outlet","fashion","Outlet, 10 Rue du Jour. Tutup Minggu",48.8640,2.3453],
+["paris","Les Halles & Sentier (1er–2e)","Metro Étienne Marcel","PIC ME Self Photo Studio","atraksi","Studio foto mandiri, 9 Rue du Cygne. Buka 12.30",48.8632,2.3491],
+["paris","Les Halles & Sentier (1er–2e)","Metro Sentier","L'Altro Frenchie","makan","Italia, 9 Rue du Nil. Reservasi; tiramisu-nya terkenal",48.8677,2.3478],
+["paris","Les Halles & Sentier (1er–2e)","Metro Bonne Nouvelle / Sentier","Fleuron Paris","sepatu","Tas kulit, 3 Rue Saint-Fiacre. Tutup Minggu",48.8698,2.3451],
 ["paris","Louvre, Tuileries & Île de la Cité (1er–4e)","Metro Cité / Tuileries","Sainte-Chapelle","lihat","Kaca patri, beli tiket online timed",48.8554,2.3450],
 ["paris","Louvre, Tuileries & Île de la Cité (1er–4e)","Metro Concorde","Musée de l'Orangerie","museum","Water Lilies Monet",48.8638,2.3227],
+["paris","Louvre, Tuileries & Île de la Cité (1er–4e)","Metro Tuileries / Concorde","Jardin des Tuileries","taman","Taman antara Louvre dan Concorde, satu jalur dengan Orangerie",48.8635,2.3275],
 ["paris","Louvre, Tuileries & Île de la Cité (1er–4e)","Metro Pyramides / Opéra","Café Nuances","kopi","Kafe cantik, cabang Rue Danielle Casanova",48.8683,2.3315],
+["paris","Louvre, Tuileries & Île de la Cité (1er–4e)","Metro Pyramides","Léo et Violette","sepatu","Tas kulit, 12 Rue Sainte-Anne. Senin buka 13.00",48.8659,2.3354],
+["paris","Louvre, Tuileries & Île de la Cité (1er–4e)","Metro Louvre-Rivoli","LOTTA","makan","8 Rue Jean-Jacques Rousseau. Pesan warm madeleine with coconut cream. €30–80",48.8623,2.3402],
 ["paris","Louvre, Tuileries & Île de la Cité (1er–4e)","Jalan kaki dari mana saja","Tepi Seine","lihat","Jalan sore sepanjang quai, atau cruise Bateaux",48.8583,2.3470],
-["paris","Saint-Germain & Luxembourg (6e–7e)","Metro Solférino / RER Musée d'Orsay","Musée d'Orsay","museum","Impresionis, tutup Senin",48.8600,2.3266],
-["paris","Saint-Germain & Luxembourg (6e–7e)","RER Luxembourg","Jardin du Luxembourg","taman","Kursi hijau, duduk-duduk",48.8462,2.3372],
-["paris","Saint-Germain & Luxembourg (6e–7e)","Metro Saint-Germain-des-Prés","Le Relais de l'Entrecôte","makan","Satu menu: steak frites saus rahasia, tanpa reservasi",48.8541,2.3330],
-["paris","Eiffel & Montparnasse (15e–14e)","Metro Bir-Hakeim / RER Champ de Mars","Centre sportif Émile Anthoine","atraksi","Lintasan lari dengan view Eiffel, 9 Rue Jean Rey",48.8555,2.2887],
-["paris","Eiffel & Montparnasse (15e–14e)","Metro Montparnasse-Bienvenüe","Tour Montparnasse","lihat","Dek observasi lantai 56, view Eiffel terbaik saat sunset",48.8421,2.3220],
-["paris","Eiffel & Montparnasse (15e–14e)","Metro Vavin / Raspail","Boulangerie M'Seddi (baguette 1er prix 2018)","roti","215 Bd Raspail, juara baguette Paris 2018 (tebakan dari '1er prix 2018')",48.8390,2.3300,1],
-["paris","Belum teridentifikasi","","Less is more","tanya","Tolong sebutkan ini toko/kafe apa",null,null,1],
-["paris","Belum teridentifikasi","","Fourche noire","tanya","Belum ketemu, mungkin salah eja?",null,null,1],
+["paris","Champs-Élysées (8e)","Metro George V / Franklin D. Roosevelt","Av. des Champs-Élysées","lihat","Jalan dari Arc de Triomphe ke Concorde",48.8698,2.3075],
+["paris","Champs-Élysées (8e)","Metro George V","Kith Paris","fashion","49 Rue Pierre Charron, ada kafe & es krim",48.8691,2.3022],
+["paris","Champs-Élysées (8e)","Metro Saint-Philippe-du-Roule","Maison Caillau","beauty","Aksesori rambut, 124 Rue du Faubourg Saint-Honoré. Sering antre",48.8722,2.3133],
+["paris","Saint-Germain, Luxembourg & Latin (5e–7e)","Metro Solférino / RER Musée d'Orsay","Musée d'Orsay","museum","Impresionis, tutup Senin",48.8600,2.3266],
+["paris","Saint-Germain, Luxembourg & Latin (5e–7e)","RER Luxembourg","Jardin du Luxembourg","taman","Kursi hijau, duduk-duduk",48.8462,2.3372],
+["paris","Saint-Germain, Luxembourg & Latin (5e–7e)","Metro Saint-Germain-des-Prés","Le Relais de l'Entrecôte","makan","Satu menu: steak frites saus rahasia, tanpa reservasi",48.8541,2.3330],
+["paris","Saint-Germain, Luxembourg & Latin (5e–7e)","Metro Sèvres-Babylone","Le Bon Marché","belanja","Department store, 24 Rue de Sèvres",48.8510,2.3245],
+["paris","Saint-Germain, Luxembourg & Latin (5e–7e)","Metro Sèvres-Babylone","La Grande Épicerie Rive Gauche","belanja","Groceries & butter, sebelah Bon Marché",48.8505,2.3233],
+["paris","Saint-Germain, Luxembourg & Latin (5e–7e)","Metro Sèvres-Babylone / Vaneau","Les Archives Vintage","vintage","Vintage designer, 21 Rue Dupin. Buka 12.00, Sabtu 13.00–17.00",48.8495,2.3257],
+["paris","Saint-Germain, Luxembourg & Latin (5e–7e)","Metro Rue du Bac","Rubirosa's","fashion","Kemeja, cashmere & piyama, 37 Rue de Grenelle",48.8539,2.3269],
+["paris","Saint-Germain, Luxembourg & Latin (5e–7e)","Metro Place Monge / Censier-Daubenton","Au P'tit Grec","jajan","Halal crêpe, 68 Rue Mouffetard. Antre",48.8418,2.3496],
+["paris","Trocadéro & Passy (16e)","Metro Trocadéro","Av. de New York","lihat","Eiffel view dari tepi Seine",48.8628,2.2935],
+["paris","Trocadéro & Passy (16e)","Metro Trocadéro","Av. d'Eylau","lihat","Eiffel view di ujung jalan",48.8652,2.2843],
+["paris","Trocadéro & Passy (16e)","Metro Trocadéro","Carette Trocadéro","kopi","Hot chocolate & croissant, view Eiffel. Antre",48.8637,2.2872],
+["paris","Trocadéro & Passy (16e)","Metro Passy / La Muette","La Grande Épicerie Rive Droite (Passy)","belanja","Groceries & butter, 80 Rue de Passy",48.8573,2.2785],
+["paris","Eiffel & Montparnasse (7e–15e)","Metro Bir-Hakeim / RER Champ de Mars","Rue de Buenos-Ayres","lihat","Eiffel view dari jalan kecil",48.8572,2.2938],
+["paris","Eiffel & Montparnasse (7e–15e)","Metro École Militaire","Rue Edmond Valentin","lihat","Eiffel view di antara gedung Haussmann",48.8593,2.3022],
+["paris","Eiffel & Montparnasse (7e–15e)","Metro Bir-Hakeim / RER Champ de Mars","Centre sportif Émile Anthoine","atraksi","Lintasan lari dengan view Eiffel, 9 Rue Jean Rey",48.8555,2.2887],
+["paris","Eiffel & Montparnasse (7e–15e)","Metro Montparnasse-Bienvenüe","Tour Montparnasse","lihat","Dek observasi lantai 56, view Eiffel terbaik saat sunset",48.8421,2.3220],
+["paris","Eiffel & Montparnasse (7e–15e)","Metro Vavin / Raspail","Boulangerie M'Seddi (baguette 1er prix 2018)","roti","215 Bd Raspail, juara baguette Paris 2018 (tebakan dari '1er prix 2018')",48.8390,2.3300,1],
+["paris","Roland Garros & Boulogne (16e)","Metro Porte d'Auteuil / Porte de Saint-Cloud","Roland Garros Stadium","atraksi","Stadion tenis, ada tur & museum",48.8470,2.2497],
+["paris","Roland Garros & Boulogne (16e)","Metro Porte de Saint-Cloud","Parc des Princes","atraksi","Stadion PSG, ada stadium tour",48.8414,2.2530],
+["paris","Roland Garros & Boulogne (16e)","Metro Boulogne Jean Jaurès","Monge Pharmacie Centrale","beauty","Apotek, 197 Bd Jean Jaurès, Boulogne-Billancourt. Tutup Minggu",48.8339,2.2435],
+["paris","La Défense","Metro 1 / RER A La Défense","La Défense","lihat","Distrik gedung modern & Grande Arche",48.8920,2.2380],
+["paris","Day trip: Noisy-le-Grand (arsitektur)","RER A Noisy-le-Grand–Mont d'Est, ±30 menit dari pusat","Picasso's Arenas","trip","Gedung bundar Arènes de Picasso, lihat dari luar (apartemen)",48.8403,2.5555],
+["paris","Day trip: Noisy-le-Grand (arsitektur)","RER A Noisy-le-Grand–Mont d'Est","Espaces d'Abraxas","trip","Kompleks apartemen monumental, dekat Picasso's Arenas",48.8379,2.5476],
+["paris","Lokasi belum dipastikan","","A.P.C.","fashion","Boutique, ada beberapa cabang. Cabang mana yang dimaksud?",null,null,1],
 ["paris","Belum teridentifikasi","","Bobème store","tanya","Belum teridentifikasi",null,null,1],
 ["paris","Belum teridentifikasi","","Pag Coffee","tanya","Belum teridentifikasi",null,null,1],
 ["paris","Belum teridentifikasi","","Bonne","tanya","Belum teridentifikasi",null,null,1],
@@ -207,7 +256,7 @@ function table(ps,cols,heads){return `<div class="scroll"><table><thead><tr>${he
 function render(){const list=filtered();if(view==='radius')return renderRadius();if(!list.length){out.innerHTML='<div class="box"><div class="empty">Tidak ada tempat yang cocok.</div></div>';return;}
 if(view==='all'){out.innerHTML=`<div class="box"><div class="hd"><h2>${CITY[city].n}</h2><span class="cnt">${list.length} tempat</span></div>${table(list,[C.mark,C.nameOnly,C.cat,C.zone,C.how,C.note,C.maps],['','Tempat','Kategori','Zona','Naik apa','Catatan',''])}</div>`;return;}
 const g={};list.forEach(p=>{const k=view==='zone'?p[1]:CAT[p[4]];(g[k]=g[k]||[]).push(p)});
-const late=k=>k.startsWith('Belum')||k.startsWith('Day trip');
+const late=k=>k.startsWith('Belum')||k.startsWith('Lokasi belum')||k.startsWith('Day trip');
 const keys=Object.keys(g).sort((a,b)=>late(a)-late(b)||g[b].length-g[a].length);
 out.innerHTML=keys.map(k=>{const ps=g[k];const how=view==='zone'?(ps.find(p=>p[2])||[])[2]:'';
 return `<div class="box"><div class="hd"><h2>${esc(k)}</h2><span class="cnt">${ps.length} tempat</span></div>${how?`<div class="how">Naik: ${esc(how)}</div>`:''}${view==='zone'?table(ps,[C.mark,C.nameOnly,C.cat,C.note,C.maps],['','Tempat','Kategori','Catatan','']):table(ps,[C.mark,C.nameOnly,C.zone,C.note,C.maps],['','Tempat','Zona','Catatan',''])}</div>`}).join('');}
