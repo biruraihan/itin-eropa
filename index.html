@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Daftar tempat: Paris, Amsterdam, Copenhagen</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light;
+  --bg:#F7F5EF;--card:#FFFFFF;--head:#EEEBE3;--ink:#1F1F1C;--ink2:#5B5A55;--ink3:#8B8A83;--line:#E4E1D8;--pill:#2B2A26;
+  --paris:#D85A30;--ams:#1D9E75;--cph:#2F7BC7;
+  --t-makan:#FBE6EC;--t-makan-i:#7A2540;--t-kopi:#F3E7DA;--t-kopi-i:#5C3A12;--t-roti:#FBEFD5;--t-roti-i:#7A4600;--t-jajan:#FBF4D0;--t-jajan-i:#6E5400;
+  --t-fashion:#E6E3F5;--t-fashion-i:#3B2F7C;--t-home:#E2F1E7;--t-home-i:#1F5A35;--t-souvenir:#F8E3F1;--t-souvenir-i:#7A1D5C;--t-museum:#E3ECF7;--t-museum-i:#1F3F6E;
+  --t-lihat:#DFF0F5;--t-lihat-i:#0B4F66;--t-taman:#E8F1D6;--t-taman-i:#33590A;--t-atraksi:#FBE7DA;--t-atraksi-i:#7A3608;--t-trip:#F3EAD9;--t-trip-i:#5A3A12;--t-tanya:#EDEDEA;--t-tanya-i:#555;--t-v:#FBEFD5;--t-v-i:#7A4600;}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,"Helvetica Neue",Arial,sans-serif;font-size:15px;line-height:1.55}
+.wrap{max-width:1100px;margin:0 auto;padding:20px 16px 56px}
+h1{font-family:Lora,Georgia,serif;font-weight:500;font-size:30px;margin:6px 0 4px;letter-spacing:-0.01em}
+.sub{color:var(--ink2);margin:0 0 18px;font-size:15px;max-width:760px}
+.bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+input[type=search],select{font:inherit;font-size:15px;padding:12px 16px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);min-height:46px}
+input[type=search]{flex:1;min-width:200px}
+.pills{display:flex;gap:8px;flex-wrap:wrap}
+.pill{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:11px 20px;font:inherit;font-size:15px;cursor:pointer;white-space:nowrap}
+.pill.on{background:var(--pill);color:#fff;border-color:var(--pill)}
+.pill.paris.on{background:var(--paris);border-color:var(--paris)}.pill.ams.on{background:var(--ams);border-color:var(--ams)}.pill.cph.on{background:var(--cph);border-color:var(--cph)}
+.cats{margin:6px 0 16px}
+.cats .pill{padding:8px 14px;font-size:14px}
+.views{margin-bottom:18px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:16px}
+.box .hd{padding:14px 18px;display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-bottom:1px solid var(--line)}
+.box .hd h2{font-family:Lora,Georgia,serif;font-weight:500;font-size:20px;margin:0}
+.box .hd .cnt{font-size:13px;color:var(--ink3);white-space:nowrap}
+.box .how{padding:10px 18px;font-size:14px;color:var(--ink2);background:var(--bg);border-bottom:1px solid var(--line)}
+.scroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:640px}
+th{text-align:left;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);background:var(--head);padding:14px 18px;white-space:nowrap}
+td{padding:16px 18px;border-top:1px solid var(--line);vertical-align:top;font-size:15px}
+tr:nth-child(even) td{background:#FCFBF8}
+td.name{font-family:Lora,Georgia,serif;font-size:19px;font-weight:400;min-width:180px}
+td.name small{display:block;font-family:Inter,sans-serif;font-size:13px;color:var(--ink2);margin-top:2px}
+.tag{display:inline-block;font-size:13px;padding:4px 11px;border-radius:6px;white-space:nowrap}
+.d{font-weight:600;font-size:17px}.d small{font-weight:400;font-size:13px;color:var(--ink2)}
+a.maps{color:var(--ink);font-size:13px;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+.radius{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:16px;display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:640px){.radius{grid-template-columns:1fr 1fr}}
+.radius label{display:block;font-size:13px;color:var(--ink2);margin-bottom:6px}
+.radius select{width:100%}
+input[type=range]{width:100%;accent-color:var(--pill)}
+.rv{font-weight:600}
+.empty{color:var(--ink3);padding:28px;text-align:center}
+.note{font-size:13px;color:var(--ink3);margin-top:22px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Daftar tempat</h1>
+<p class="sub">Paris, Amsterdam, Copenhagen, 6–17 Oktober 2026. Dikelompokkan per zona jalan kaki supaya sekali naik transport bisa mampir ke beberapa tempat. Pakai pencarian, filter kategori, atau mode radius.</p>
+
+<div class="bar">
+  <input type="search" id="q" placeholder="Cari tempat atau catatan…">
+  <div class="pills" id="cities">
+    <button class="pill paris" data-c="paris">Paris</button>
+    <button class="pill ams" data-c="ams">Amsterdam</button>
+    <button class="pill cph" data-c="cph">Copenhagen</button>
+  </div>
+</div>
+<div class="bar">
+  <div class="pills views" id="views">
+    <button class="pill on" data-v="zone">Per zona</button>
+    <button class="pill" data-v="cat">Per kategori</button>
+    <button class="pill" data-v="all">Semua (satu tabel)</button>
+    <button class="pill" data-v="radius">Radius jalan kaki</button>
+  </div>
+  <select id="zoneSel"><option value="">Semua zona</option></select>
+</div>
+<div class="pills cats" id="cats"></div>
+
+<div id="out"></div>
+<p class="note">Koordinat bersifat perkiraan untuk mengelompokkan zona, bukan navigasi. Tempat bertanda "cek lokasi" belum saya pastikan alamatnya.</p>
+</div>
+
+<script>
+const CAT={makan:"Makan",kopi:"Kopi & kafe",roti:"Roti & pastry",jajan:"Jajanan",fashion:"Belanja fashion",home:"Home & decor",souvenir:"Souvenir",museum:"Museum",lihat:"Sightseeing",taman:"Taman",atraksi:"Atraksi",trip:"Day trip",tanya:"Belum jelas"};
+const CITY={paris:{n:"Paris"},ams:{n:"Amsterdam"},cph:{n:"Copenhagen"}};
+const P=[
+["paris","Canal Saint-Martin (10e)","Metro République / Jacques Bonsergent","Centre Commercial","fashion","Concept store fashion berkelanjutan, 2 Rue de Marseille",48.8710,2.3620],
+["paris","Canal Saint-Martin (10e)","Metro République / Jacques Bonsergent","Centre Commercial Outdoor","fashion","Toko running & outdoor, persis di sebelahnya (10 Rue de Marseille)",48.8712,2.3622],
+["paris","Canal Saint-Martin (10e)","Metro République / Jacques Bonsergent","Du Pain et des Idées","roti","Bakery legendaris, escargot pistache. Tutup Sabtu–Minggu",48.8709,2.3626],
+["paris","Haut-Marais (3e–4e)","Metro Filles du Calvaire / Saint-Sébastien-Froissart","The Broken Arm","fashion","Concept store + kafe, 12 Rue Perrée",48.8646,2.3618],
+["paris","Haut-Marais (3e–4e)","Metro Filles du Calvaire / Saint-Sébastien-Froissart","Distance Running Store","fashion","Toko running, 14 Rue des Filles du Calvaire",48.8620,2.3660],
+["paris","Haut-Marais (3e–4e)","Metro Filles du Calvaire / Saint-Sébastien-Froissart","Satisfy Store Paris","fashion","Brand running Paris, toko di Marais",48.8585,2.3650,1],
+["paris","Haut-Marais (3e–4e)","Metro Filles du Calvaire / Saint-Sébastien-Froissart","Chez Janou","makan","Bistro Provençal, mousse coklat sepuasnya. Reservasi",48.8563,2.3660],
+["paris","Haut-Marais (3e–4e)","Metro Saint-Paul","Dover Street Market Paris","fashion","35-37 Rue des Francs Bourgeois, ada Rose Bakery",48.8579,2.3600],
+["paris","Oberkampf (11e)","Metro Parmentier / Oberkampf","Boulangerie Utopie","roti","Roti hitam arang, 20 Rue Jean-Pierre Timbaud",48.8660,2.3690],
+["paris","Oberkampf (11e)","Metro Parmentier / Oberkampf","The French Bastards","roti","Bakery, cabang Oberkampf (ada cabang lain juga)",48.8657,2.3720],
+["paris","Montmartre & Pigalle (9e–18e)","Metro Abbesses / Pigalle","Musée de Montmartre","museum","Taman Renoir, pemandangan kebun anggur",48.8878,2.3407],
+["paris","Montmartre & Pigalle (9e–18e)","Metro Abbesses / Pigalle","Fotoautomat Montmartre","atraksi","Photo booth analog, 53 Rue des Trois Frères",48.8855,2.3405],
+["paris","Montmartre & Pigalle (9e–18e)","Metro Abbesses / Pigalle","Bouillon Pigalle","makan","Bistro murah klasik, antre tanpa reservasi",48.8822,2.3374],
+["paris","Montmartre & Pigalle (9e–18e)","Metro Anvers / Pigalle","Mamiche","roti","Babka & cookie, 45 Rue Condorcet",48.8807,2.3403],
+["paris","Louvre, Tuileries & Île de la Cité (1er–4e)","Metro Cité / Tuileries","Sainte-Chapelle","lihat","Kaca patri, beli tiket online timed",48.8554,2.3450],
+["paris","Louvre, Tuileries & Île de la Cité (1er–4e)","Metro Concorde","Musée de l'Orangerie","museum","Water Lilies Monet",48.8638,2.3227],
+["paris","Louvre, Tuileries & Île de la Cité (1er–4e)","Metro Pyramides / Opéra","Café Nuances","kopi","Kafe cantik, cabang Rue Danielle Casanova",48.8683,2.3315],
+["paris","Louvre, Tuileries & Île de la Cité (1er–4e)","Jalan kaki dari mana saja","Tepi Seine","lihat","Jalan sore sepanjang quai, atau cruise Bateaux",48.8583,2.3470],
+["paris","Saint-Germain & Luxembourg (6e–7e)","Metro Solférino / RER Musée d'Orsay","Musée d'Orsay","museum","Impresionis, tutup Senin",48.8600,2.3266],
+["paris","Saint-Germain & Luxembourg (6e–7e)","RER Luxembourg","Jardin du Luxembourg","taman","Kursi hijau, duduk-duduk",48.8462,2.3372],
+["paris","Saint-Germain & Luxembourg (6e–7e)","Metro Saint-Germain-des-Prés","Le Relais de l'Entrecôte","makan","Satu menu: steak frites saus rahasia, tanpa reservasi",48.8541,2.3330],
+["paris","Eiffel & Montparnasse (15e–14e)","Metro Bir-Hakeim / RER Champ de Mars","Centre sportif Émile Anthoine","atraksi","Lintasan lari dengan view Eiffel, 9 Rue Jean Rey",48.8555,2.2887],
+["paris","Eiffel & Montparnasse (15e–14e)","Metro Montparnasse-Bienvenüe","Tour Montparnasse","lihat","Dek observasi lantai 56, view Eiffel terbaik saat sunset",48.8421,2.3220],
+["paris","Eiffel & Montparnasse (15e–14e)","Metro Vavin / Raspail","Boulangerie M'Seddi (baguette 1er prix 2018)","roti","215 Bd Raspail, juara baguette Paris 2018 (tebakan dari '1er prix 2018')",48.8390,2.3300,1],
+["paris","Belum teridentifikasi","","Less is more","tanya","Tolong sebutkan ini toko/kafe apa",null,null,1],
+["paris","Belum teridentifikasi","","Fourche noire","tanya","Belum ketemu, mungkin salah eja?",null,null,1],
+["paris","Belum teridentifikasi","","Bobème store","tanya","Belum teridentifikasi",null,null,1],
+["paris","Belum teridentifikasi","","Pag Coffee","tanya","Belum teridentifikasi",null,null,1],
+["paris","Belum teridentifikasi","","Bonne","tanya","Belum teridentifikasi",null,null,1],
+["paris","Belum teridentifikasi","","Sevenly heart","tanya","Belum teridentifikasi",null,null,1],
+
+["ams","Centrum: Centraal & Damrak","Jalan kaki dari Centraal","Tony's Chocolonely Store","souvenir","Oosterdokskade 5, dekat dermaga. Antre, datang pagi",52.3760,4.9070],
+["ams","Centrum: Centraal & Damrak","Jalan kaki dari Centraal","Kentang goreng Damrak (toko biru ramai)","jajan","Lurus dari Centraal ke selatan",52.3765,4.8960],
+["ams","Centrum: Centraal & Damrak","Jalan kaki dari Centraal","Canal tour","atraksi","Dermaga di depan Centraal / Damrak. Cek cuaca dulu",52.3745,4.8965],
+["ams","Centrum: Kalverstraat & Bloemenmarkt","Tram 2/12 Koningsplein, atau jalan 15 menit dari Centraal","Van Wonderen Stroopwafels","jajan","Kalverstraat 190, stroopwafel topping",52.3695,4.8912],
+["ams","Centrum: Kalverstraat & Bloemenmarkt","Tram 2/12 Koningsplein","HEMA Kalverstraat","souvenir","Miffy section, sticker book 3–5 €",52.3710,4.8915],
+["ams","Centrum: Kalverstraat & Bloemenmarkt","Tram 2/12 Koningsplein","Bloemenmarkt","souvenir","Pasar bunga Singel, souvenir jauh lebih murah dari dekat Centraal",52.3667,4.8910],
+["ams","Centrum: Kalverstraat & Bloemenmarkt","Tram 2/12 Koningsplein","Toko buku Spui (Athenaeum, American Book Center)","fashion","Banyak buku Inggris, baru & bekas",52.3688,4.8898],
+["ams","Centrum: Kalverstraat & Bloemenmarkt","Tram 2/12 Koningsplein","Chatime","jajan","Ada di tengah kota",52.3730,4.8930,1],
+["ams","De Pijp & Rivierenbuurt","Tram 12 / Metro 52 Europaplein","De winkel van nijntje","souvenir","Toko Miffy utama Amsterdam, Scheldestraat 61, ada photo spot",52.3480,4.8898],
+["ams","De Pijp & Rivierenbuurt","","Tuku","kopi","Kedai kopi Indonesia, agak melipir",null,null,1],
+["ams","Day trip: Zaanse Schans","Bus 391 dari Centraal, 40 menit","Zaanse Schans","trip","Desa kincir angin, pabrik klompen. 4–5 jam",52.4740,4.8180],
+["ams","Day trip: Volendam","Bus 316 dari Centraal, 30 menit","Volendam","trip","Foto baju Belanda, dermaga seafood & poffertjes. Bisa gabung dengan Zaanse Schans",52.4950,5.0720],
+["ams","Day trip: Utrecht","Kereta dari Centraal, 30 menit","Miffy Traffic Light + patung Dick Bruna & Miffy","trip","Nijntje Pleintje, dua-duanya berdekatan",52.0920,5.1180],
+["ams","Day trip: Utrecht","Jalan kaki di pusat Utrecht","Groeten uit Utrecht","souvenir","Toko Miffy utama Utrecht, harga lebih baik dari Amsterdam",52.0908,5.1200],
+["ams","Day trip: Utrecht","Jalan kaki di pusat Utrecht","nijntje museum (gift shop)","souvenir","Museumnya untuk anak, gift shop terbuka untuk umum",52.0870,5.1240],
+["ams","Day trip: Utrecht","Di Hoog Catharijne, sebelah stasiun","HEMA Utrecht","souvenir","HEMA besar, ada Miffy section",52.0900,5.1120],
+["ams","Day trip: Den Haag","Kereta dari Centraal, 50 menit","Den Haag","trip","Kota paling Indonesia di Eropa: martabak, nasi padang, pempek. Kalau ada waktu sisa",52.0800,4.3100],
+
+["cph","Indre By: Strøget & sekitarnya","Metro Kongens Nytorv / Gammel Strand","Hay House","home","Østergade 61, lantai atas Amagertorv",55.6787,12.5790],
+["cph","Indre By: Strøget & sekitarnya","Metro Nørreport / Gammel Strand","Arket (home decor)","home","Købmagergade",55.6800,12.5765],
+["cph","Indre By: Strøget & sekitarnya","Metro Kongens Nytorv","New Mags","home","Buku desain & majalah, Store Regnegade",55.6817,12.5800],
+["cph","Indre By: Strøget & sekitarnya","Metro Nørreport","Notre Dame","home","Toko peralatan rumah & dapur, Nørregade",55.6795,12.5725],
+["cph","Indre By: Strøget & sekitarnya","Metro Gammel Strand","NAKED","fashion","Sneaker & streetwear perempuan, Klosterstræde",55.6795,12.5755],
+["cph","Indre By: Strøget & sekitarnya","Metro Kongens Nytorv","Tekla","home","Flagship linen & handuk, Store Strandstræde, dekat Nyhavn",55.6810,12.5895],
+["cph","Indre By: Strøget & sekitarnya","","Norr","fashion","Perlu alamat pasti",55.6800,12.5780,1],
+["cph","Indre By: Strøget & sekitarnya","","Another Nue","fashion","Perlu alamat pasti",55.6805,12.5770,1],
+["cph","Indre By: Strøget & sekitarnya","","Pico","fashion","Perlu alamat pasti (ada beberapa cabang)",55.6790,12.5760,1],
+["cph","Indre By: Strøget & sekitarnya","","Wilén Store","fashion","Perlu alamat pasti",55.6810,12.5760,1],
+["cph","Rosenborg & Frederiksstaden","Metro Nørreport / Marmorkirken","Rosenborg Castle","lihat","Permata mahkota, tiket online",55.6857,12.5773],
+["cph","Rosenborg & Frederiksstaden","Metro Nørreport","King's Garden (Kongens Have)","taman","Taman di depan Rosenborg, gratis",55.6850,12.5790],
+["cph","Rosenborg & Frederiksstaden","Metro Marmorkirken","Amalienborg Palace","lihat","Pergantian penjaga jam 12.00",55.6841,12.5930],
+["cph","Rosenborg & Frederiksstaden","Metro Marmorkirken","Designmuseum Danmark","museum","Bredgade 68, kursi Denmark klasik",55.6866,12.5920],
+["cph","Rosenborg & Frederiksstaden","Metro Kongens Nytorv","Nyhavn","lihat","Rumah warna-warni, ramai; cantik pagi",55.6797,12.5910],
+["cph","Rosenborg & Frederiksstaden","Metro Kongens Nytorv","Canal boat tour","atraksi","Berangkat dari Nyhavn, 1 jam",55.6795,12.5905],
+["cph","Vesterbro & Værnedamsvej","Bus 9A / jalan 10 menit dari Central Station","Granola","kopi","Kafe retro Prancis, Værnedamsvej 5",55.6740,12.5510],
+["cph","Vesterbro & Værnedamsvej","Bus 9A / jalan dari Central Station","Rist Kaffebar","kopi","Værnedamsvej 4B, seberang Granola",55.6742,12.5512],
+["cph","Vesterbro & Værnedamsvej","Bus 9A Gl. Kongevej","Hart Bageri","roti","Gl. Kongevej 109, cardamom bun & sourdough",55.6748,12.5450],
+["cph","Vesterbro & Værnedamsvej","","Boii","fashion","Perlu alamat pasti",55.6725,12.5560,1],
+["cph","Vesterbro & Værnedamsvej","Jalan 10 menit dari Central Station","Meatpacking District / Kødbyens Fiskebar","makan","Makan malam. Jangan pesan razor clams",55.6685,12.5620],
+["cph","Vesterbro & Værnedamsvej","","Collectors Cage","tanya","Belum teridentifikasi",null,null,1],
+["cph","Vesterbro & Værnedamsvej","","Mad Kaffe","kopi","Belum ketemu alamatnya",null,null,1],
+["cph","Islands Brygge","Metro Islands Brygge","Studio Arhoj","home","Keramik & ghost, Kigkurren 8G",55.6640,12.5760],
+["cph","Østerbro","Bus 1A / Metro Poul Henningsens Plads","Juno the Bakery","roti","Cardamom bun terkenal, Århusgade 48. Antre pagi, tutup Senin–Selasa",55.7060,12.5820],
+["cph","Refshaleøen","Bus 2A atau harbour bus 991/992 dari Nyhavn","Lille Bakery","roti","Refshalevej 213A, brunch",55.6905,12.6130],
+["cph","Refshaleøen","Harbour bus 991/992","La Banchina","makan","Dermaga kecil, sauna & berenang, makan siang",55.6888,12.6050],
+["cph","Refshaleøen","Harbour bus 991/992","Copenhagen Contemporary","museum","Refshalevej 173A, tutup Senin",55.6900,12.6100],
+["cph","Day trip: Louisiana","Kereta ke Humlebæk 35 menit + jalan 10 menit","Louisiana Museum of Modern Art","trip","Setengah hari, tutup Senin",55.9690,12.5420],
+["cph","Day trip: Malmö (Swedia)","Øresund train dari Central Station, 35 menit. Bawa paspor","Malmöhus Castle","trip","Kastil renaisans di Slottsparken",55.6055,12.9870],
+["cph","Day trip: Malmö (Swedia)","Jalan kaki di Malmö","Slottsträdgårdens Kafé","kopi","Kafe di kebun kastil, buka musim hangat (cek Oktober)",55.6050,12.9880],
+["cph","Day trip: Malmö (Swedia)","Jalan kaki di Malmö","Designtorget Malmö","home","Desain Swedia",55.6045,13.0000],
+["cph","Day trip: Malmö (Swedia)","Jalan kaki di Malmö","Bullen","makan","Restoran klasik Swedia, Storgatan",55.6015,12.9940],
+["cph","Day trip: Malmö (Swedia)","Jalan kaki di Malmö","Opsi lain: Lilla Torg, Form/Design Center, Malmö Saluhall","trip","Alun-alun tua, pusat desain, food hall",55.6040,12.9990],
+["cph","Day trip: Aarhus (jauh)","Kereta 3 jam sekali jalan","ARoS Aarhus (rainbow panorama)","trip","Seharian penuh; berat untuk 4 hari. Pertimbangkan drop",56.1535,10.1995,1]
+];
+const cityBtns=[...document.querySelectorAll('#cities .pill')],cats=document.getElementById('cats'),out=document.getElementById('out'),q=document.getElementById('q'),zoneSel=document.getElementById('zoneSel');
+let city='paris',view='zone',sel=new Set(),anchor=null,rad=800,sortKey=null,sortDir=1;
+try{const s=localStorage.getItem('city');if(s&&CITY[s])city=s;}catch(e){}
+cityBtns.forEach(b=>{b.classList.toggle('on',b.dataset.c===city);b.onclick=()=>{city=b.dataset.c;cityBtns.forEach(x=>x.classList.toggle('on',x===b));sel.clear();anchor=null;try{localStorage.setItem('city',city)}catch(e){}buildCats();buildZones();render();}});
+document.querySelectorAll('#views .pill').forEach(b=>b.onclick=()=>{view=b.dataset.v;document.querySelectorAll('#views .pill').forEach(x=>x.classList.toggle('on',x===b));render();});
+q.oninput=render;zoneSel.onchange=render;
+function inCity(){return P.filter(p=>p[0]===city)}
+function buildCats(){const used=new Set(inCity().map(p=>p[4]));cats.innerHTML='';Object.keys(CAT).filter(k=>used.has(k)).forEach(k=>{const b=document.createElement('button');b.className='pill';b.textContent=CAT[k];b.onclick=()=>{sel.has(k)?sel.delete(k):sel.add(k);b.classList.toggle('on');render();};cats.appendChild(b);});}
+function buildZones(){const z=[...new Set(inCity().map(p=>p[1]))];zoneSel.innerHTML='<option value="">Semua zona</option>'+z.map(x=>`<option>${x}</option>`).join('');}
+function filtered(){const t=q.value.trim().toLowerCase();return inCity().filter(p=>(!sel.size||sel.has(p[4]))&&(!zoneSel.value||p[1]===zoneSel.value)&&(!t||(p[3]+' '+p[5]+' '+p[1]).toLowerCase().includes(t)));}
+function dist(a,b){if(a[6]==null||b[6]==null)return Infinity;const R=6371000,dl=(b[6]-a[6])*Math.PI/180,dg=(b[7]-a[7])*Math.PI/180,x=Math.sin(dl/2)**2+Math.cos(a[6]*Math.PI/180)*Math.cos(b[6]*Math.PI/180)*Math.sin(dg/2)**2;return 2*R*Math.asin(Math.sqrt(x));}
+function fm(m){return m<1000?Math.round(m/50)*50+' m':(m/1000).toFixed(1)+' km'}
+function walk(m){return Math.max(1,Math.round(m/80))+' mnt'}
+function esc(s){return String(s).replace(/</g,'&lt;')}
+function mapsUrl(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p[3].replace(/\s*\(.*?\)/g,'')+' '+CITY[p[0]].n)}
+function tag(p){return p[8]?`<span class="tag" style="background:var(--t-v);color:var(--t-v-i)">cek lokasi</span>`:`<span class="tag" style="background:var(--t-${p[4]});color:var(--t-${p[4]}-i)">${CAT[p[4]]}</span>`}
+function row(p,cols){return `<tr>${cols.map(c=>c(p)).join('')}</tr>`}
+const C={name:p=>`<td class="name">${esc(p[3])}<small>${esc(p[1])}</small></td>`,nameOnly:p=>`<td class="name">${esc(p[3])}</td>`,cat:p=>`<td>${tag(p)}</td>`,zone:p=>`<td style="font-size:14px">${esc(p[1])}</td>`,how:p=>`<td style="font-size:14px;color:var(--ink2)">${esc(p[2]||'—')}</td>`,note:p=>`<td style="color:var(--ink2)">${esc(p[5])}</td>`,maps:p=>`<td><a class="maps" href="${mapsUrl(p)}" target="_blank" rel="noopener">Foto & rute</a></td>`};
+function table(ps,cols,heads){return `<div class="scroll"><table><thead><tr>${heads.map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>${ps.map(p=>row(p,cols)).join('')}</tbody></table></div>`}
+function render(){const list=filtered();if(view==='radius')return renderRadius();if(!list.length){out.innerHTML='<div class="box"><div class="empty">Tidak ada tempat yang cocok.</div></div>';return;}
+if(view==='all'){out.innerHTML=`<div class="box"><div class="hd"><h2>${CITY[city].n}</h2><span class="cnt">${list.length} tempat</span></div>${table(list,[C.nameOnly,C.cat,C.zone,C.how,C.note,C.maps],['Tempat','Kategori','Zona','Naik apa','Catatan',''])}</div>`;return;}
+const g={};list.forEach(p=>{const k=view==='zone'?p[1]:CAT[p[4]];(g[k]=g[k]||[]).push(p)});
+const late=k=>k.startsWith('Belum')||k.startsWith('Day trip');
+const keys=Object.keys(g).sort((a,b)=>late(a)-late(b)||g[b].length-g[a].length);
+out.innerHTML=keys.map(k=>{const ps=g[k];const how=view==='zone'?(ps.find(p=>p[2])||[])[2]:'';
+return `<div class="box"><div class="hd"><h2>${esc(k)}</h2><span class="cnt">${ps.length} tempat</span></div>${how?`<div class="how">Naik: ${esc(how)}</div>`:''}${view==='zone'?table(ps,[C.nameOnly,C.cat,C.note,C.maps],['Tempat','Kategori','Catatan','']):table(ps,[C.nameOnly,C.zone,C.note,C.maps],['Tempat','Zona','Catatan',''])}</div>`}).join('');}
+function renderRadius(){const all=inCity().filter(p=>p[6]!=null);if(anchor==null)anchor=all[0][3];const a=all.find(p=>p[3]===anchor)||all[0];
+const near=all.filter(p=>p!==a).map(p=>[p,dist(a,p)]).filter(x=>x[1]<=rad&&(!sel.size||sel.has(x[0][4]))).sort((x,y)=>x[1]-y[1]);
+out.innerHTML=`<div class="radius"><div><label>Mulai dari</label><select id="anc">${all.map(p=>`<option ${p===a?'selected':''}>${esc(p[3])}</option>`).join('')}</select></div>
+<div><label>Radius jalan kaki: <span class="rv" id="rv">${fm(rad)}</span></label><input type="range" id="rr" min="300" max="3000" step="100" value="${rad}"></div></div>
+<div class="box"><div class="hd"><h2>${near.length} tempat dalam ${fm(rad)}</h2><span class="cnt">dari ${esc(a[3])}</span></div><div class="how">Naik: ${esc(a[2]||'—')}. Urut dari yang terdekat.</div>
+${near.length?`<div class="scroll"><table><thead><tr><th>Tempat</th><th>Kategori</th><th>Jarak</th><th>Catatan</th><th></th></tr></thead><tbody>${near.map(x=>`<tr>${C.nameOnly(x[0])}${C.cat(x[0])}<td class="d">${fm(x[1])} <small>· ${walk(x[1])} jalan</small></td>${C.note(x[0])}${C.maps(x[0])}</tr>`).join('')}</tbody></table></div>`:'<div class="empty">Perbesar radius atau ganti titik mulai.</div>'}</div>`;
+document.getElementById('anc').onchange=e=>{anchor=e.target.value;renderRadius()};
+const rr=document.getElementById('rr');rr.oninput=e=>{rad=+e.target.value;document.getElementById('rv').textContent=fm(rad)};rr.onchange=renderRadius;}
+buildCats();buildZones();render();
+</script>
+</body>
+</html>
